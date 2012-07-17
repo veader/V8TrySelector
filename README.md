@@ -9,17 +9,20 @@ Idea
 Try to implement the Rails #try command on NSObject to decrease a few lines of code.
 
 Go from:
+
     SEL someSelector = @selector(doThatThing);
     if ([someObject respondsToSelector:someSelector]) {
-      [someObject performSelector:someSelector]
+        [someObject performSelector:someSelector]
     }
 
 Can now be:
+
     [foo trySelector:@selector(doThatThing)];
 
 
 Usage
 -----
 Just add the files to your project and import.
+
     #import "NSObject+V8TrySelector.h"
 
