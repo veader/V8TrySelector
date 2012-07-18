@@ -6,7 +6,16 @@ by Shawn Veader (@veader) of [V8 Logic](http://v8logic.com) / [V8 Labs, LLC](htt
 
 Idea
 ----
-Try to implement the Rails #try command on NSObject to decrease a few lines of code.
+Rails offers an interesting method, `try`, that allows you to send a method to an object without checking if that object is nil.
+
+    >> foo = nil
+    => nil
+    >> foo.bar
+    NoMethodError: undefined method `bar' for nil:NilClass
+    >> foo.try :bar
+    => nil
+
+While Objective-C doesn't care about sending messages to nil, it would be nice to avoid checking for response to a selector. Can we add something like this to NSObject to avoid a few lines of code?
 
 Go from:
 
@@ -15,7 +24,7 @@ Go from:
         [someObject performSelector:someSelector]
     }
 
-Can now be:
+To:
 
     [foo trySelector:@selector(doThatThing)];
 
