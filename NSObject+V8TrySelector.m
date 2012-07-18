@@ -1,10 +1,3 @@
-//
-//  NSObject+V8TrySelector.m
-//  fStats
-//
-//  Created by Shawn Veader on 5/10/12.
-//  Copyright (c) 2012 V8 Labs, LLC. All rights reserved.
-//
 
 #import "NSObject+V8TrySelector.h"
 
