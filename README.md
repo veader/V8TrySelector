@@ -1,5 +1,5 @@
-V8TrySelector
-=============
+V8TrySelector Category for NSObject
+===================================
 A fun thought experiment...
 
 Idea
@@ -13,7 +13,7 @@ Rails offers an interesting method, `try`, that allows you to send a message to 
     >> foo.try :bar
     => nil
 
-While Objective-C doesn't care about sending messages to nil; however, it would be nice to avoid checking for response to a selector. Can we add something like this to `NSObject` to avoid a few lines of code?
+While Objective-C doesn't care about sending messages to nil, it would be nice to avoid checking for response to a selector. Can we add something like this to `NSObject` to avoid a few lines of code?
 
 Go from:
 
