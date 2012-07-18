@@ -1,12 +1,10 @@
 V8TrySelector
 =============
-A thought experiment adding the Rails concept of try to NSObject.
-
-by Shawn Veader (@veader) of [V8 Logic](http://v8logic.com) / [V8 Labs, LLC](http://v8labs.com)
+A fun thought experiment...
 
 Idea
 ----
-Rails offers an interesting method, `try`, that allows you to send a method to an object without checking if that object is nil.
+Rails offers an interesting method, `try`, that allows you to send a message to an object without checking if that object is nil.
 
     >> foo = nil
     => nil
@@ -15,7 +13,7 @@ Rails offers an interesting method, `try`, that allows you to send a method to a
     >> foo.try :bar
     => nil
 
-While Objective-C doesn't care about sending messages to nil, it would be nice to avoid checking for response to a selector. Can we add something like this to NSObject to avoid a few lines of code?
+While Objective-C doesn't care about sending messages to nil; however, it would be nice to avoid checking for response to a selector. Can we add something like this to `NSObject` to avoid a few lines of code?
 
 Go from:
 
@@ -26,12 +24,18 @@ Go from:
 
 To:
 
-    [foo trySelector:@selector(doThatThing)];
+    [someObject trySelector:@selector(doThatThing)];
 
 
 Usage
 -----
-Just add the files to your project and import.
+Add the files to your project and import the header.
 
     #import "NSObject+V8TrySelector.h"
 
+Now `NSObject` supports the following:
+
+    - (id)trySelector:(SEL)selector;
+    - (id)trySelector:(SEL)selector withObject:(id)obj;
+
+Both methods will return the value of the message has a return value or `nil` if the object does not respond to the selector.
